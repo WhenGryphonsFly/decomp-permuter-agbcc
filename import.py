@@ -717,7 +717,7 @@ def write_compile_command(compiler: List[str], cwd: str, out_file: str) -> None:
         f.write('INPUT="$(realpath "$1")"\n')
         f.write('OUTPUT="$(realpath "$3")"\n')
         f.write(f"cd {shlex.quote(cwd)}\n")
-        f.write('set -o pipefail')
+        f.write('set -o pipefail\n')
         f.write(finalize_compile_command(compiler))
     os.chmod(out_file, 0o755)
 
